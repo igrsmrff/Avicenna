@@ -1,6 +1,8 @@
 Avicenna Clinic
 ==========================================
 
+    http://avicenna.wlab.tech/
+    
     - composer install;
     - php init --env=Development --overwrite=All;
     - php yii migrate/up --interactive=0;

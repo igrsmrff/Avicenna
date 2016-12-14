@@ -1,0 +1,70 @@
+.tile-stats {
+    background: #ffffff;
+    border: 1px solid #3c8dbc;
+    position: relative;
+    display: block;
+    padding: 20px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    border-radius: 5px;
+    transition: all 300ms ease-in-out;
+}
+
+.tile-stats > .num {
+    font-size: 38px;
+    font-weight: bold;
+    position: relative;
+    z-index: 5;
+    margin: 0;
+    padding: 0;
+}
+
+.tile-stats > h3 {
+    position: relative;
+    font-size: 18px;
+    margin-top: 5px;
+    z-index: 5;
+    padding: 0;
+}
+
+.tile-stats > .icon {
+    color: #f2f2f2;
+    bottom: 30px;
+    position: absolute;
+    right: 5px;
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+.icon i {
+    font-size: 100px;
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+    vertical-align: bottom;
+}
+
+.color-black {
+    color: #000000;
+}
+.color-rose {
+    color: #f56954;
+}
+.color-light-blue {
+    color: #00c0ef;
+}
+.color-blue {
+    color: #0073b7;
+}
+.color-turquoise {
+    color: #00b29e;
+}
+.color-purple {
+    color: #ba79cb;
+}
+.color-fuchsia {
+    color: #ec3b83;
+}
+.color-yellow {
+    color: #ffa812;
+}

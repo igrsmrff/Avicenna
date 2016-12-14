@@ -1,0 +1,57 @@
+{
+    "name": "yiisoft/yii2-app-advanced",
+    "description": "Yii 2 Advanced Project Template",
+    "keywords": ["yii2", "framework", "advanced", "project template"],
+    "homepage": "http://www.yiiframework.com/",
+    "type": "project",
+    "license": "BSD-3-Clause",
+    "support": {
+        "issues": "https://github.com/yiisoft/yii2/issues?state=open",
+        "forum": "http://www.yiiframework.com/forum/",
+        "wiki": "http://www.yiiframework.com/wiki/",
+        "irc": "irc://irc.freenode.net/yii",
+        "source": "https://github.com/yiisoft/yii2"
+    },
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.4.0",
+        "yiisoft/yii2": ">=2.0.6",
+        "yiisoft/yii2-bootstrap": "*",
+        "yiisoft/yii2-swiftmailer": "*",
+        "odaialali/yii2-toastr": "dev-master",
+        "dmstr/yii2-adminlte-asset": "^2.3",
+        "himiklab/yii2-recaptcha-widget": "^1.0",
+        "WondersLabCorporation/yii2-unlimited-number-input-widget": "dev-master",
+        "2amigos/yii2-tinymce-widget": "^1.1",
+        "yiister/yii2-adminlte": "~1.0",
+        "yiisoft/yii2-jui": "~2.0.0",
+        "twilio/sdk": "^5.4",
+        "philippfrenzel/yii2fullcalendar":"*",
+        "kartik-v/yii2-widget-select2": "@dev",
+        "mailgun/mailgun-php": "^2.1",
+        "php-http/curl-client": "^1.6",
+        "guzzlehttp/psr7": "^1.3"
+
+    },
+    "require-dev": {
+        "yiisoft/yii2-codeception": "*",
+        "yiisoft/yii2-debug": "*",
+        "yiisoft/yii2-gii": "*",
+        "yiisoft/yii2-faker": "*"
+    },
+    "config": {
+        "process-timeout": 1800
+    },
+    "extra": {
+        "asset-installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
+        }
+    },
+    "repositories": [
+        {
+            "url": "https://github.com/WondersLabCorporation/yii2-unlimited-number-input-widget.git",
+            "type": "git"
+        }
+    ]
+}

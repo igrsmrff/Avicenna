@@ -1,0 +1,159 @@
+<?php
+
+namespace frontend\controllers;
+
+use Yii;
+use backend\components\BaseController;
+use common\models\InvoiceEntryDropDown;
+use common\models\User;
+use common\models\InvoiceEntryDropDownSearch;
+use yii\web\NotFoundHttpException;
+use yii\filters\VerbFilter;
+
+/**
+ * InvoiceEntryDropDownController implements the CRUD actions for InvoiceEntryDropDown model.
+ */
+class InvoiceEntryDropDownController extends BaseController
+{
+    /**
+     * @inheritdoc
+     */
+    public function behaviors()
+    {
+        $behaviors = parent::behaviors();
+        $behaviors['access']['rules'] = array_merge(
+            [
+                [
+                    'actions' => [
+                        'index',
+                        'view',
+                        'create',
+                        'update',
+                        'delete',
+                    ],
+                    'allow' => true,
+                    'roles' => [
+                        User::ROLE_ADMIN,
+                        User::ROLE_RECEPTIONIST
+                    ],
+                ],
+
+                [
+                    'actions' => ['view','index'],
+                    'allow' => true,
+                    'roles' => [
+                        User::ROLE_DOCTOR,
+                        User::ROLE_NURSE,
+                        User::ROLE_LABORATORIST,
+                        User::ROLE_RECEPTIONIST,
+                        User::ROLE_PHARMACIST,
+                        User::ROLE_ACCOUNTANT
+                    ],
+                ],
+            ],
+            $behaviors['access']['rules']
+        );
+
+        $behaviors['verbs'] = [
+            'class' => VerbFilter::className(),
+            'actions' => [
+                'delete' => ['POST'],
+            ],
+        ];
+
+        return $behaviors;
+    }
+
+    /**
+     * Lists all InvoiceEntryDropDown models.
+     * @return mixed
+     */
+    public function actionIndex()
+    {
+        $searchModel = new InvoiceEntryDropDownSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->pagination->pageSize = 20;
+
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    /**
+     * Displays a single InvoiceEntryDropDown model.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionView($id)
+    {
+        return $this->render('view', [
+            'model' => $this->findModel($id),
+        ]);
+    }
+
+    /**
+     * Creates a new InvoiceEntryDropDown model.
+     * If creation is successful, the browser will be redirected to the 'view' page.
+     * @return mixed
+     */
+    public function actionCreate()
+    {
+        $model = new InvoiceEntryDropDown();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['index']);
+        } else {
+            return $this->render('create', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+    /**
+     * Updates an existing InvoiceEntryDropDown model.
+     * If update is successful, the browser will be redirected to the 'view' page.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionUpdate($id)
+    {
+        $model = $this->findModel($id);
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['index']);
+        } else {
+            return $this->render('update', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+    /**
+     * Deletes an existing InvoiceEntryDropDown model.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionDelete($id)
+    {
+        $this->findModel($id)->delete();
+        return $this->redirect(['index']);
+    }
+
+    /**
+     * Finds the InvoiceEntryDropDown model based on its primary key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param integer $id
+     * @return InvoiceEntryDropDown the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    protected function findModel($id)
+    {
+        if (($model = InvoiceEntryDropDown::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+}

@@ -1,0 +1,11 @@
+development:
+  environment: development
+  script:
+    - cd /var/www/avicenna.wlab.tech;
+    - git pull origin master;
+    - composer install;
+    - php init --env=Development --overwrite=All;
+    - php yii migrate/up --interactive=0;
+    - chmod +x addCronJob.sh
+  type: deploy
+  only:

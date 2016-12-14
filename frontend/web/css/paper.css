@@ -1,0 +1,16 @@
+.ebat {
+    color: red;
+}
+
+.a4{
+    height: 842px;
+    width: 595px;
+    background-color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
